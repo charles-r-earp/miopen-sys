@@ -84,31 +84,10 @@ where
         }
     }
 }
-pub const true_: u32 = 1;
-pub const false_: u32 = 0;
-pub const __bool_true_false_are_defined: u32 = 1;
-pub const MIOPEN_BACKEND_OPENCL: u32 = 0;
-pub const MIOPEN_BACKEND_HCC: u32 = 0;
-pub const MIOPEN_BACKEND_HIP: u32 = 1;
-pub const MIOPEN_USE_MIOPENGEMM: u32 = 0;
-pub const MIOPEN_USE_ROCBLAS: u32 = 1;
-pub const MIOPEN_BUILD_DEV: u32 = 0;
-pub const MIOPEN_GPU_SYNC: u32 = 0;
-pub const MIOPEN_ENABLE_SQLITE: u32 = 1;
-pub const MIOPEN_ENABLE_SQLITE_KERN_CACHE: u32 = 1;
-pub const MIOPEN_DEBUG_FIND_DB_CACHING: u32 = 1;
-pub const MIOPEN_USE_SCGEMM: u32 = 0;
-pub const MIOPEN_HCC_ENABLE_COV3: u32 = 0;
-pub const MIOPEN_USE_RNE_BFLOAT16: u32 = 1;
-pub const MIOPEN_AMDGCN_ASSEMBLER: &'static [u8; 25usize] = b"/opt/rocm/llvm/bin/clang\0";
-pub const HIP_OC_COMPILER: &'static [u8; 30usize] = b"/opt/rocm-3.5.0/bin/clang-ocl\0";
-pub const MIOPEN_HIP_COMPILER: &'static [u8; 33usize] = b"/opt/rocm-3.5.0/llvm/bin/clang++\0";
-pub const MIOPEN_OFFLOADBUNDLER_BIN: &'static [u8; 41usize] =
-    b"/opt/rocm/llvm/bin/clang-offload-bundler\0";
-pub const MIOPEN_CACHE_DIR: &'static [u8; 17usize] = b"~/.cache/miopen/\0";
-pub const MIOPEN_NDEBUG: u32 = 0;
-pub const MIOPEN_ALLOC_BUFFERS: u32 = 0;
 pub const DEFINE_NO_DEPRECATED: u32 = 0;
+pub const hipblasVersionMajor: u32 = 0;
+pub const hipblaseVersionMinor: u32 = 28;
+pub const hipblasVersionPatch: u32 = 0;
 pub const _STRING_H: u32 = 1;
 pub const _FEATURES_H: u32 = 1;
 pub const _DEFAULT_SOURCE: u32 = 1;
@@ -216,6 +195,9 @@ pub const WINT_MIN: u32 = 0;
 pub const WINT_MAX: u32 = 4294967295;
 pub const GENERIC_GRID_LAUNCH: u32 = 1;
 pub const __HIP_ROCclr__: u32 = 0;
+pub const true_: u32 = 1;
+pub const false_: u32 = 0;
+pub const __bool_true_false_are_defined: u32 = 1;
 pub const HIP_TRSA_OVERRIDE_FORMAT: u32 = 1;
 pub const HIP_TRSF_READ_AS_INTEGER: u32 = 1;
 pub const HIP_TRSF_NORMALIZED_COORDINATES: u32 = 2;
@@ -351,52 +333,27 @@ pub const hipOccupancyDefault: u32 = 0;
 pub const hipCooperativeLaunchMultiDeviceNoPreSync: u32 = 1;
 pub const hipCooperativeLaunchMultiDeviceNoPostSync: u32 = 2;
 pub const USE_PEER_NON_UNIFIED: u32 = 1;
-pub type wchar_t = ::libc::c_int;
-#[repr(C)]
-#[repr(align(16))]
-#[derive(Debug, Copy, Clone)]
-pub struct max_align_t {
-    pub __clang_max_align_nonce1: ::libc::c_longlong,
-    pub __bindgen_padding_0: u64,
-    pub __clang_max_align_nonce2: u128,
-}
-#[test]
-fn bindgen_test_layout_max_align_t() {
-    assert_eq!(
-        ::std::mem::size_of::<max_align_t>(),
-        32usize,
-        concat!("Size of: ", stringify!(max_align_t))
-    );
-    assert_eq!(
-        ::std::mem::align_of::<max_align_t>(),
-        16usize,
-        concat!("Alignment of ", stringify!(max_align_t))
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<max_align_t>())).__clang_max_align_nonce1 as *const _ as usize
-        },
-        0usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(max_align_t),
-            "::",
-            stringify!(__clang_max_align_nonce1)
-        )
-    );
-    assert_eq!(
-        unsafe {
-            &(*(::std::ptr::null::<max_align_t>())).__clang_max_align_nonce2 as *const _ as usize
-        },
-        16usize,
-        concat!(
-            "Offset of field: ",
-            stringify!(max_align_t),
-            "::",
-            stringify!(__clang_max_align_nonce2)
-        )
-    );
-}
+pub const MIOPEN_BACKEND_OPENCL: u32 = 0;
+pub const MIOPEN_BACKEND_HCC: u32 = 0;
+pub const MIOPEN_BACKEND_HIP: u32 = 1;
+pub const MIOPEN_USE_MIOPENGEMM: u32 = 0;
+pub const MIOPEN_USE_ROCBLAS: u32 = 1;
+pub const MIOPEN_BUILD_DEV: u32 = 0;
+pub const MIOPEN_GPU_SYNC: u32 = 0;
+pub const MIOPEN_ENABLE_SQLITE: u32 = 1;
+pub const MIOPEN_ENABLE_SQLITE_KERN_CACHE: u32 = 1;
+pub const MIOPEN_DEBUG_FIND_DB_CACHING: u32 = 1;
+pub const MIOPEN_USE_SCGEMM: u32 = 0;
+pub const MIOPEN_HCC_ENABLE_COV3: u32 = 0;
+pub const MIOPEN_USE_RNE_BFLOAT16: u32 = 1;
+pub const MIOPEN_AMDGCN_ASSEMBLER: &'static [u8; 25usize] = b"/opt/rocm/llvm/bin/clang\0";
+pub const HIP_OC_COMPILER: &'static [u8; 30usize] = b"/opt/rocm-3.5.0/bin/clang-ocl\0";
+pub const MIOPEN_HIP_COMPILER: &'static [u8; 33usize] = b"/opt/rocm-3.5.0/llvm/bin/clang++\0";
+pub const MIOPEN_OFFLOADBUNDLER_BIN: &'static [u8; 41usize] =
+    b"/opt/rocm/llvm/bin/clang-offload-bundler\0";
+pub const MIOPEN_CACHE_DIR: &'static [u8; 17usize] = b"~/.cache/miopen/\0";
+pub const MIOPEN_NDEBUG: u32 = 0;
+pub const MIOPEN_ALLOC_BUFFERS: u32 = 0;
 extern "C" {
     pub fn memcpy(
         __dest: *mut ::libc::c_void,
@@ -2090,6 +2047,52 @@ pub type uint_fast32_t = ::libc::c_ulong;
 pub type uint_fast64_t = ::libc::c_ulong;
 pub type intmax_t = __intmax_t;
 pub type uintmax_t = __uintmax_t;
+pub type wchar_t = ::libc::c_int;
+#[repr(C)]
+#[repr(align(16))]
+#[derive(Debug, Copy, Clone)]
+pub struct max_align_t {
+    pub __clang_max_align_nonce1: ::libc::c_longlong,
+    pub __bindgen_padding_0: u64,
+    pub __clang_max_align_nonce2: u128,
+}
+#[test]
+fn bindgen_test_layout_max_align_t() {
+    assert_eq!(
+        ::std::mem::size_of::<max_align_t>(),
+        32usize,
+        concat!("Size of: ", stringify!(max_align_t))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<max_align_t>(),
+        16usize,
+        concat!("Alignment of ", stringify!(max_align_t))
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<max_align_t>())).__clang_max_align_nonce1 as *const _ as usize
+        },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(max_align_t),
+            "::",
+            stringify!(__clang_max_align_nonce1)
+        )
+    );
+    assert_eq!(
+        unsafe {
+            &(*(::std::ptr::null::<max_align_t>())).__clang_max_align_nonce2 as *const _ as usize
+        },
+        16usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(max_align_t),
+            "::",
+            stringify!(__clang_max_align_nonce2)
+        )
+    );
+}
 pub type hipDeviceptr_t = *mut ::libc::c_void;
 #[repr(u32)]
 #[non_exhaustive]
@@ -9911,6 +9914,7616 @@ extern "C" {
         hostFunction: *const ::libc::c_void,
         stream: hipStream_t,
     ) -> *const ::libc::c_char;
+}
+pub type hipblasHandle_t = *mut ::libc::c_void;
+pub type hipblasHalf = u16;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct hipblasBfloat16 {
+    pub data: u16,
+}
+#[test]
+fn bindgen_test_layout_hipblasBfloat16() {
+    assert_eq!(
+        ::std::mem::size_of::<hipblasBfloat16>(),
+        2usize,
+        concat!("Size of: ", stringify!(hipblasBfloat16))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hipblasBfloat16>(),
+        2usize,
+        concat!("Alignment of ", stringify!(hipblasBfloat16))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<hipblasBfloat16>())).data as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hipblasBfloat16),
+            "::",
+            stringify!(data)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct hipblasComplex {
+    pub x: f32,
+    pub y: f32,
+}
+#[test]
+fn bindgen_test_layout_hipblasComplex() {
+    assert_eq!(
+        ::std::mem::size_of::<hipblasComplex>(),
+        8usize,
+        concat!("Size of: ", stringify!(hipblasComplex))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hipblasComplex>(),
+        4usize,
+        concat!("Alignment of ", stringify!(hipblasComplex))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<hipblasComplex>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hipblasComplex),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<hipblasComplex>())).y as *const _ as usize },
+        4usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hipblasComplex),
+            "::",
+            stringify!(y)
+        )
+    );
+}
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct hipblasDoubleComplex {
+    pub x: f64,
+    pub y: f64,
+}
+#[test]
+fn bindgen_test_layout_hipblasDoubleComplex() {
+    assert_eq!(
+        ::std::mem::size_of::<hipblasDoubleComplex>(),
+        16usize,
+        concat!("Size of: ", stringify!(hipblasDoubleComplex))
+    );
+    assert_eq!(
+        ::std::mem::align_of::<hipblasDoubleComplex>(),
+        8usize,
+        concat!("Alignment of ", stringify!(hipblasDoubleComplex))
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<hipblasDoubleComplex>())).x as *const _ as usize },
+        0usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hipblasDoubleComplex),
+            "::",
+            stringify!(x)
+        )
+    );
+    assert_eq!(
+        unsafe { &(*(::std::ptr::null::<hipblasDoubleComplex>())).y as *const _ as usize },
+        8usize,
+        concat!(
+            "Offset of field: ",
+            stringify!(hipblasDoubleComplex),
+            "::",
+            stringify!(y)
+        )
+    );
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasStatus_t {
+    HIPBLAS_STATUS_SUCCESS = 0,
+    HIPBLAS_STATUS_NOT_INITIALIZED = 1,
+    HIPBLAS_STATUS_ALLOC_FAILED = 2,
+    HIPBLAS_STATUS_INVALID_VALUE = 3,
+    HIPBLAS_STATUS_MAPPING_ERROR = 4,
+    HIPBLAS_STATUS_EXECUTION_FAILED = 5,
+    HIPBLAS_STATUS_INTERNAL_ERROR = 6,
+    HIPBLAS_STATUS_NOT_SUPPORTED = 7,
+    HIPBLAS_STATUS_ARCH_MISMATCH = 8,
+    HIPBLAS_STATUS_HANDLE_IS_NULLPTR = 9,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasOperation_t {
+    HIPBLAS_OP_N = 111,
+    HIPBLAS_OP_T = 112,
+    HIPBLAS_OP_C = 113,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasPointerMode_t {
+    HIPBLAS_POINTER_MODE_HOST = 0,
+    HIPBLAS_POINTER_MODE_DEVICE = 1,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasFillMode_t {
+    HIPBLAS_FILL_MODE_UPPER = 121,
+    HIPBLAS_FILL_MODE_LOWER = 122,
+    HIPBLAS_FILL_MODE_FULL = 123,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasDiagType_t {
+    HIPBLAS_DIAG_NON_UNIT = 131,
+    HIPBLAS_DIAG_UNIT = 132,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasSideMode_t {
+    HIPBLAS_SIDE_LEFT = 141,
+    HIPBLAS_SIDE_RIGHT = 142,
+    HIPBLAS_SIDE_BOTH = 143,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasDatatype_t {
+    #[doc = "< 16 bit floating point, real"]
+    HIPBLAS_R_16F = 150,
+    #[doc = "< 32 bit floating point, real"]
+    HIPBLAS_R_32F = 151,
+    #[doc = "< 64 bit floating point, real"]
+    HIPBLAS_R_64F = 152,
+    #[doc = "< 16 bit floating point, complex"]
+    HIPBLAS_C_16F = 153,
+    #[doc = "< 32 bit floating point, complex"]
+    HIPBLAS_C_32F = 154,
+    #[doc = "< 64 bit floating point, complex"]
+    HIPBLAS_C_64F = 155,
+    #[doc = "<  8 bit signed integer, real"]
+    HIPBLAS_R_8I = 160,
+    #[doc = "<  8 bit unsigned integer, real"]
+    HIPBLAS_R_8U = 161,
+    #[doc = "< 32 bit signed integer, real"]
+    HIPBLAS_R_32I = 162,
+    #[doc = "< 32 bit unsigned integer, real"]
+    HIPBLAS_R_32U = 163,
+    #[doc = "<  8 bit signed integer, complex"]
+    HIPBLAS_C_8I = 164,
+    #[doc = "<  8 bit unsigned integer, complex"]
+    HIPBLAS_C_8U = 165,
+    #[doc = "< 32 bit signed integer, complex"]
+    HIPBLAS_C_32I = 166,
+    #[doc = "< 32 bit unsigned integer, complex"]
+    HIPBLAS_C_32U = 167,
+    #[doc = "< 16 bit bfloat, real"]
+    HIPBLAS_R_16B = 168,
+    #[doc = "< 16 bit bfloat, complex"]
+    HIPBLAS_C_16B = 169,
+}
+#[repr(u32)]
+#[non_exhaustive]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
+pub enum hipblasGemmAlgo_t {
+    HIPBLAS_GEMM_DEFAULT = 160,
+}
+extern "C" {
+    pub fn hipblasCreate(handle: *mut hipblasHandle_t) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDestroy(handle: hipblasHandle_t) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSetStream(handle: hipblasHandle_t, streamId: hipStream_t) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasGetStream(handle: hipblasHandle_t, streamId: *mut hipStream_t)
+        -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSetPointerMode(
+        handle: hipblasHandle_t,
+        mode: hipblasPointerMode_t,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasGetPointerMode(
+        handle: hipblasHandle_t,
+        mode: *mut hipblasPointerMode_t,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSetVector(
+        n: ::libc::c_int,
+        elemSize: ::libc::c_int,
+        x: *const ::libc::c_void,
+        incx: ::libc::c_int,
+        y: *mut ::libc::c_void,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasGetVector(
+        n: ::libc::c_int,
+        elemSize: ::libc::c_int,
+        x: *const ::libc::c_void,
+        incx: ::libc::c_int,
+        y: *mut ::libc::c_void,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSetMatrix(
+        rows: ::libc::c_int,
+        cols: ::libc::c_int,
+        elemSize: ::libc::c_int,
+        A: *const ::libc::c_void,
+        lda: ::libc::c_int,
+        B: *mut ::libc::c_void,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasGetMatrix(
+        rows: ::libc::c_int,
+        cols: ::libc::c_int,
+        elemSize: ::libc::c_int,
+        A: *const ::libc::c_void,
+        lda: ::libc::c_int,
+        B: *mut ::libc::c_void,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgeam(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        beta: *const f32,
+        B: *const f32,
+        ldb: ::libc::c_int,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgeam(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        beta: *const f64,
+        B: *const f64,
+        ldb: ::libc::c_int,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIsamax(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIdamax(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIcamax(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIzamax(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIsamaxBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIdamaxBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIcamaxBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIzamaxBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIsamaxStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIdamaxStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIcamaxStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIzamaxStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIsamin(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIdamin(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIcamin(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIzamin(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIsaminBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIdaminBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIcaminBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIzaminBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIsaminStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIdaminStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIcaminStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasIzaminStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSasum(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDasum(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScasum(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDzasum(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSasumBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDasumBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScasumBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDzasumBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSasumStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDasumStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScasumStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDzasumStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHaxpy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasHalf,
+        x: *const hipblasHalf,
+        incx: ::libc::c_int,
+        y: *mut hipblasHalf,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSaxpy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDaxpy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCaxpy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZaxpy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHaxpyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasHalf,
+        x: *const *const hipblasHalf,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasHalf,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSaxpyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        y: *const *mut f32,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDaxpyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        y: *const *mut f64,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCaxpyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZaxpyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHaxpyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasHalf,
+        x: *const hipblasHalf,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasHalf,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSaxpyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDaxpyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCaxpyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZaxpyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScopy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDcopy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCcopy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZcopy(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScopyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        y: *const *mut f32,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDcopyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        y: *const *mut f64,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCcopyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZcopyBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScopyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDcopyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCcopyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZcopyStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHdot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasHalf,
+        incx: ::libc::c_int,
+        y: *const hipblasHalf,
+        incy: ::libc::c_int,
+        result: *mut hipblasHalf,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasBfdot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasBfloat16,
+        incx: ::libc::c_int,
+        y: *const hipblasBfloat16,
+        incy: ::libc::c_int,
+        result: *mut hipblasBfloat16,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSdot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDdot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCdotc(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        result: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCdotu(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        result: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdotc(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        result: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdotu(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        result: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHdotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasHalf,
+        incx: ::libc::c_int,
+        y: *const *const hipblasHalf,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasHalf,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasBfdotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasBfloat16,
+        incx: ::libc::c_int,
+        y: *const *const hipblasBfloat16,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasBfloat16,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSdotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        y: *const *const f32,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDdotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        y: *const *const f64,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCdotcBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCdotuBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdotcBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdotuBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHdotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasHalf,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasHalf,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasHalf,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasBfdotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasBfloat16,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasBfloat16,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasBfloat16,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSdotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDdotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCdotcStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCdotuStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdotcStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdotuStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batch_count: ::libc::c_int,
+        result: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSnrm2(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDnrm2(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScnrm2(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDznrm2(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSnrm2Batched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDnrm2Batched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScnrm2Batched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDznrm2Batched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSnrm2StridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDnrm2StridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasScnrm2StridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDznrm2StridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+        result: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        c: *const f32,
+        s: *const f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        c: *const f64,
+        s: *const f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCrot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        c: *const f32,
+        s: *const hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsrot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        c: *const f32,
+        s: *const f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZrot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        c: *const f64,
+        s: *const hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdrot(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        c: *const f64,
+        s: *const f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        y: *const *mut f32,
+        incy: ::libc::c_int,
+        c: *const f32,
+        s: *const f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        y: *const *mut f64,
+        incy: ::libc::c_int,
+        c: *const f64,
+        s: *const f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCrotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        c: *const f32,
+        s: *const hipblasComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsrotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        c: *const f32,
+        s: *const f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZrotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        c: *const f64,
+        s: *const hipblasDoubleComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdrotBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        c: *const f64,
+        s: *const f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        c: *const f32,
+        s: *const f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        c: *const f64,
+        s: *const f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCrotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        c: *const f32,
+        s: *const hipblasComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsrotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        c: *const f32,
+        s: *const f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZrotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        c: *const f64,
+        s: *const hipblasDoubleComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdrotStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        c: *const f64,
+        s: *const f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotg(
+        handle: hipblasHandle_t,
+        a: *mut f32,
+        b: *mut f32,
+        c: *mut f32,
+        s: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotg(
+        handle: hipblasHandle_t,
+        a: *mut f64,
+        b: *mut f64,
+        c: *mut f64,
+        s: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCrotg(
+        handle: hipblasHandle_t,
+        a: *mut hipblasComplex,
+        b: *mut hipblasComplex,
+        c: *mut f32,
+        s: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZrotg(
+        handle: hipblasHandle_t,
+        a: *mut hipblasDoubleComplex,
+        b: *mut hipblasDoubleComplex,
+        c: *mut f64,
+        s: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotgBatched(
+        handle: hipblasHandle_t,
+        a: *const *mut f32,
+        b: *const *mut f32,
+        c: *const *mut f32,
+        s: *const *mut f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotgBatched(
+        handle: hipblasHandle_t,
+        a: *const *mut f64,
+        b: *const *mut f64,
+        c: *const *mut f64,
+        s: *const *mut f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCrotgBatched(
+        handle: hipblasHandle_t,
+        a: *const *mut hipblasComplex,
+        b: *const *mut hipblasComplex,
+        c: *const *mut f32,
+        s: *const *mut hipblasComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZrotgBatched(
+        handle: hipblasHandle_t,
+        a: *const *mut hipblasDoubleComplex,
+        b: *const *mut hipblasDoubleComplex,
+        c: *const *mut f64,
+        s: *const *mut hipblasDoubleComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotgStridedBatched(
+        handle: hipblasHandle_t,
+        a: *mut f32,
+        stride_a: ::libc::c_int,
+        b: *mut f32,
+        stride_b: ::libc::c_int,
+        c: *mut f32,
+        stride_c: ::libc::c_int,
+        s: *mut f32,
+        stride_s: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotgStridedBatched(
+        handle: hipblasHandle_t,
+        a: *mut f64,
+        stride_a: ::libc::c_int,
+        b: *mut f64,
+        stride_b: ::libc::c_int,
+        c: *mut f64,
+        stride_c: ::libc::c_int,
+        s: *mut f64,
+        stride_s: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCrotgStridedBatched(
+        handle: hipblasHandle_t,
+        a: *mut hipblasComplex,
+        stride_a: ::libc::c_int,
+        b: *mut hipblasComplex,
+        stride_b: ::libc::c_int,
+        c: *mut f32,
+        stride_c: ::libc::c_int,
+        s: *mut hipblasComplex,
+        stride_s: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZrotgStridedBatched(
+        handle: hipblasHandle_t,
+        a: *mut hipblasDoubleComplex,
+        stride_a: ::libc::c_int,
+        b: *mut hipblasDoubleComplex,
+        stride_b: ::libc::c_int,
+        c: *mut f64,
+        stride_c: ::libc::c_int,
+        s: *mut hipblasDoubleComplex,
+        stride_s: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotm(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        param: *const f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotm(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        param: *const f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotmBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        y: *const *mut f32,
+        incy: ::libc::c_int,
+        param: *const *const f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotmBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        y: *const *mut f64,
+        incy: ::libc::c_int,
+        param: *const *const f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotmStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        param: *const f32,
+        stride_param: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotmStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        param: *const f64,
+        stride_param: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotmg(
+        handle: hipblasHandle_t,
+        d1: *mut f32,
+        d2: *mut f32,
+        x1: *mut f32,
+        y1: *const f32,
+        param: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotmg(
+        handle: hipblasHandle_t,
+        d1: *mut f64,
+        d2: *mut f64,
+        x1: *mut f64,
+        y1: *const f64,
+        param: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotmgBatched(
+        handle: hipblasHandle_t,
+        d1: *const *mut f32,
+        d2: *const *mut f32,
+        x1: *const *mut f32,
+        y1: *const *const f32,
+        param: *const *mut f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotmgBatched(
+        handle: hipblasHandle_t,
+        d1: *const *mut f64,
+        d2: *const *mut f64,
+        x1: *const *mut f64,
+        y1: *const *const f64,
+        param: *const *mut f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSrotmgStridedBatched(
+        handle: hipblasHandle_t,
+        d1: *mut f32,
+        stride_d1: ::libc::c_int,
+        d2: *mut f32,
+        stride_d2: ::libc::c_int,
+        x1: *mut f32,
+        stride_x1: ::libc::c_int,
+        y1: *const f32,
+        stride_y1: ::libc::c_int,
+        param: *mut f32,
+        stride_param: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDrotmgStridedBatched(
+        handle: hipblasHandle_t,
+        d1: *mut f64,
+        stride_d1: ::libc::c_int,
+        d2: *mut f64,
+        stride_d2: ::libc::c_int,
+        x1: *mut f64,
+        stride_x1: ::libc::c_int,
+        y1: *const f64,
+        stride_y1: ::libc::c_int,
+        param: *mut f64,
+        stride_param: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSscal(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *mut f32,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDscal(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *mut f64,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCscal(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsscal(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZscal(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdscal(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSscalBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDscalBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCscalBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZscalBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsscalBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdscalBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSscalStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDscalStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCscalStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZscalStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsscalStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZdscalStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSswap(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDswap(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCswap(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZswap(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSswapBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut *mut f32,
+        incx: ::libc::c_int,
+        y: *mut *mut f32,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDswapBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut *mut f64,
+        incx: ::libc::c_int,
+        y: *mut *mut f64,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCswapBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut *mut hipblasComplex,
+        incx: ::libc::c_int,
+        y: *mut *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZswapBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *mut *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSswapStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDswapStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCswapStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZswapStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgbmv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgbmv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgbmv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgbmv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgbmvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *const *mut f32,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgbmvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *const *mut f64,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgbmvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgbmvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgbmvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stride_y: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgbmvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stride_y: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgbmvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stride_y: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgbmvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        kl: ::libc::c_int,
+        ku: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stride_y: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgemv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgemv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgemv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgemv(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgemvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *const *mut f32,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgemvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *const *mut f64,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgemvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgemvBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgemvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgemvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        stridey: ::libc::c_int,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgemvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgemvStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        stridey: ::libc::c_int,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSger(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDger(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgeru(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgerc(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgeru(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgerc(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgerBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        y: *const *const f32,
+        incy: ::libc::c_int,
+        A: *const *mut f32,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgerBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        y: *const *const f64,
+        incy: ::libc::c_int,
+        A: *const *mut f64,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgeruBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgercBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgeruBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgercBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgerStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgerStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgeruStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgercStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgeruStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgercStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChemv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhemv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        da: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChemvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhemvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChemvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stride_y: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhemvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stride_y: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCher(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZher(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCher2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZher2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCher2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZher2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCher2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZher2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChpmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        AP: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhpmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        AP: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChpmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        AP: *const *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *const *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhpmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        AP: *const *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *const *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChpmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        AP: *const hipblasComplex,
+        strideAP: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhpmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        AP: *const hipblasDoubleComplex,
+        strideAP: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChpr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        AP: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhpr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        AP: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChprBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        AP: *const *mut hipblasComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhprBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        AP: *const *mut hipblasDoubleComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChprStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        AP: *mut hipblasComplex,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhprStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        AP: *mut hipblasDoubleComplex,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChpr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        AP: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhpr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        AP: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChpr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasComplex,
+        incy: ::libc::c_int,
+        AP: *const *mut hipblasComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhpr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        AP: *const *mut hipblasDoubleComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasChpr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        AP: *mut hipblasComplex,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZhpr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        AP: *mut hipblasDoubleComplex,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut *mut f32,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut *mut f64,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSspmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        AP: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDspmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        AP: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSspmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        AP: *const *const f32,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut *mut f32,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDspmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        AP: *const *const f64,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut *mut f64,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSspmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        AP: *const f32,
+        strideAP: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDspmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        AP: *const f64,
+        strideAP: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSspr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        AP: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDspr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        AP: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCspr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        AP: *mut hipblasComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZspr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        AP: *mut hipblasDoubleComplex,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsprBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        AP: *const *mut f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsprBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        AP: *const *mut f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsprBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        AP: *const *mut hipblasComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsprBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        AP: *const *mut hipblasDoubleComplex,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsprStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        AP: *mut f32,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsprStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        AP: *mut f64,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsprStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        AP: *mut hipblasComplex,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsprStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        AP: *mut hipblasDoubleComplex,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSspr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        AP: *mut f32,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDspr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        AP: *mut f64,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSspr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        y: *const *const f32,
+        incy: ::libc::c_int,
+        AP: *const *mut f32,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDspr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        y: *const *const f64,
+        incy: ::libc::c_int,
+        AP: *const *mut f64,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSspr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        AP: *mut f32,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDspr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        AP: *mut f64,
+        strideAP: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsymv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsymv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsymv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsymv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsymvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        beta: *const f32,
+        y: *mut *mut f32,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsymvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        beta: *const f64,
+        y: *mut *mut f64,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsymvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut *mut hipblasComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsymvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsymvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        stirdeA: ::libc::c_int,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f32,
+        y: *mut f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsymvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        stirdeA: ::libc::c_int,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const f64,
+        y: *mut f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsymvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        stirdeA: ::libc::c_int,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasComplex,
+        y: *mut hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsymvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        stirdeA: ::libc::c_int,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        y: *mut hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyr(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        A: *const *mut f32,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        A: *const *mut f64,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        stridey: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyr2(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const *const f32,
+        incx: ::libc::c_int,
+        y: *const *const f32,
+        incy: ::libc::c_int,
+        A: *const *mut f32,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const *const f64,
+        incx: ::libc::c_int,
+        y: *const *const f64,
+        incy: ::libc::c_int,
+        A: *const *mut f64,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const *const hipblasComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyr2Batched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        y: *const *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        x: *const f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f32,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        x: *const f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const f64,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        x: *const hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyr2StridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        x: *const hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        y: *const hipblasDoubleComplex,
+        incy: ::libc::c_int,
+        stridey: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const f32,
+        lda: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const f64,
+        lda: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtbmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtbmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const f32,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const f64,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtbmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        k: ::libc::c_int,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStpmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f32,
+        x: *mut f32,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtpmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f64,
+        x: *mut f64,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtpmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasComplex,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtpmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasDoubleComplex,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStpmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const f32,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtpmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const f64,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtpmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const hipblasComplex,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtpmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const hipblasDoubleComplex,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStpmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f32,
+        strideAP: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stride: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtpmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f64,
+        strideAP: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stride: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtpmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasComplex,
+        strideAP: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stride: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtpmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasDoubleComplex,
+        strideAP: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stride: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStpsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f32,
+        x: *mut f32,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtpsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f64,
+        x: *mut f64,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtpsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasComplex,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtpsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasDoubleComplex,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStpsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const f32,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtpsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const f64,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtpsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const hipblasComplex,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtpsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const *const hipblasDoubleComplex,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStpsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f32,
+        strideAP: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtpsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const f64,
+        strideAP: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtpsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasComplex,
+        strideAP: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtpsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        AP: *const hipblasDoubleComplex,
+        strideAP: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f32,
+        lda: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f64,
+        lda: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrmv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrmvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f32,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f64,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrmvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        stride_a: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stride_x: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f32,
+        lda: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f64,
+        lda: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrsv(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        x: *const *mut f32,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        x: *const *mut f64,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        x: *const *mut hipblasComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrsvBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        x: *const *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *mut f32,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *mut f64,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *mut hipblasComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrsvStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        x: *mut hipblasDoubleComplex,
+        incx: ::libc::c_int,
+        stridex: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherk(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        beta: *const f32,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherk(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        beta: *const f64,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherkBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        beta: *const f32,
+        C: *const *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherkBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        beta: *const f64,
+        C: *const *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherkStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        beta: *const f32,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherkStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        beta: *const f64,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherkx(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherkx(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherkxBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *const *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherkxBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *const *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCherkxStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f32,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZherkxStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f64,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCher2k(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZher2k(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCher2kBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *const *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZher2kBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *const *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCher2kStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f32,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZher2kStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f64,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrk(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrk(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrk(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrk(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrkBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        beta: *const f32,
+        C: *const *mut f32,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrkBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        beta: *const f64,
+        C: *const *mut f64,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrkBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *const *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrkBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *const *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrkStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrkStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrkStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrkStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyr2k(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        B: *const f32,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyr2k(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        B: *const f64,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyr2k(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyr2k(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyr2kBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        B: *const *const f32,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *const *mut f32,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyr2kBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        B: *const *const f64,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *const *mut f64,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyr2kBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *const *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyr2kBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *const *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyr2kStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const f32,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyr2kStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const f64,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyr2kStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyr2kStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        strideC: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrkx(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        B: *const f32,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrkx(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        B: *const f64,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrkx(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrkx(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrkxBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        B: *const *const f32,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *const *mut f32,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrkxBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        B: *const *const f64,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *const *mut f64,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrkxBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *const *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrkxBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *const *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSsyrkxStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const f32,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+        stridec: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDsyrkxStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const f64,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+        stridec: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCsyrkxStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        stridec: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZsyrkxStridedBatched(
+        handle: hipblasHandle_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        stridec: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrmm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        B: *mut f32,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrmm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        B: *mut f64,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrmm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *mut hipblasComplex,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrmm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrmmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        B: *const *mut f32,
+        ldb: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrmmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        B: *const *mut f64,
+        ldb: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrmmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const *mut hipblasComplex,
+        ldb: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrmmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrmmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut f32,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrmmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut f64,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrmmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut hipblasComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrmmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrsm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        B: *mut f32,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrsm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        B: *mut f64,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrsm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        B: *mut hipblasComplex,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrsm(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrsmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *mut f32,
+        lda: ::libc::c_int,
+        B: *mut *mut f32,
+        ldb: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrsmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *mut f64,
+        lda: ::libc::c_int,
+        B: *mut *mut f64,
+        ldb: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrsmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        B: *mut *mut hipblasComplex,
+        ldb: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrsmBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *mut *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasStrsmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f32,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut f32,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDtrsmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const f64,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut f64,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCtrsmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut hipblasComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZtrsmStridedBatched(
+        handle: hipblasHandle_t,
+        side: hipblasSideMode_t,
+        uplo: hipblasFillMode_t,
+        transA: hipblasOperation_t,
+        diag: hipblasDiagType_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        B: *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgetrf(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgetrf(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgetrf(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgetrf(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgetrfBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *const *mut f32,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgetrfBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *const *mut f64,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgetrfBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgetrfBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgetrfStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgetrfStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgetrfStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgetrfStridedBatched(
+        handle: hipblasHandle_t,
+        n: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut ::libc::c_int,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgetrs(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *mut f32,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgetrs(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *mut f64,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgetrs(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *mut hipblasComplex,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgetrs(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgetrsBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *const *mut f32,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *const *mut f32,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgetrsBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *const *mut f64,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *const *mut f64,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgetrsBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *const *mut hipblasComplex,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgetrsBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        B: *const *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgetrsStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        strideP: ::libc::c_int,
+        B: *mut f32,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgetrsStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        strideP: ::libc::c_int,
+        B: *mut f64,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgetrsStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        strideP: ::libc::c_int,
+        B: *mut hipblasComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgetrsStridedBatched(
+        handle: hipblasHandle_t,
+        trans: hipblasOperation_t,
+        n: ::libc::c_int,
+        nrhs: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *const ::libc::c_int,
+        strideP: ::libc::c_int,
+        B: *mut hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        strideB: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgeqrf(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        ipiv: *mut f32,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgeqrf(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        ipiv: *mut f64,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgeqrf(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        ipiv: *mut hipblasComplex,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgeqrf(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        ipiv: *mut hipblasDoubleComplex,
+        info: *mut ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgeqrfBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *const *mut f32,
+        lda: ::libc::c_int,
+        ipiv: *const *mut f32,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgeqrfBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *const *mut f64,
+        lda: ::libc::c_int,
+        ipiv: *const *mut f64,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgeqrfBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *const *mut hipblasComplex,
+        lda: ::libc::c_int,
+        ipiv: *const *mut hipblasComplex,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgeqrfBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *const *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        ipiv: *const *mut hipblasDoubleComplex,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgeqrfStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut f32,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut f32,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgeqrfStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut f64,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut f64,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgeqrfStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut hipblasComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut hipblasComplex,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgeqrfStridedBatched(
+        handle: hipblasHandle_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        A: *mut hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        strideA: ::libc::c_int,
+        ipiv: *mut hipblasDoubleComplex,
+        strideP: ::libc::c_int,
+        info: *mut ::libc::c_int,
+        batch_count: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHgemm(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasHalf,
+        A: *const hipblasHalf,
+        lda: ::libc::c_int,
+        B: *const hipblasHalf,
+        ldb: ::libc::c_int,
+        beta: *const hipblasHalf,
+        C: *mut hipblasHalf,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgemm(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        B: *const f32,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgemm(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        B: *const f64,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgemm(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgemm(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHgemmBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasHalf,
+        A: *const *const hipblasHalf,
+        lda: ::libc::c_int,
+        B: *const *const hipblasHalf,
+        ldb: ::libc::c_int,
+        beta: *const hipblasHalf,
+        C: *const *mut hipblasHalf,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgemmBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const *const f32,
+        lda: ::libc::c_int,
+        B: *const *const f32,
+        ldb: ::libc::c_int,
+        beta: *const f32,
+        C: *const *mut f32,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgemmBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const *const f64,
+        lda: ::libc::c_int,
+        B: *const *const f64,
+        ldb: ::libc::c_int,
+        beta: *const f64,
+        C: *const *mut f64,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgemmBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const *const hipblasComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasComplex,
+        C: *const *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgemmBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        B: *const *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        beta: *const hipblasDoubleComplex,
+        C: *const *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasHgemmStridedBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasHalf,
+        A: *const hipblasHalf,
+        lda: ::libc::c_int,
+        bsa: ::libc::c_longlong,
+        B: *const hipblasHalf,
+        ldb: ::libc::c_int,
+        bsb: ::libc::c_longlong,
+        beta: *const hipblasHalf,
+        C: *mut hipblasHalf,
+        ldc: ::libc::c_int,
+        bsc: ::libc::c_longlong,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasSgemmStridedBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f32,
+        A: *const f32,
+        lda: ::libc::c_int,
+        bsa: ::libc::c_longlong,
+        B: *const f32,
+        ldb: ::libc::c_int,
+        bsb: ::libc::c_longlong,
+        beta: *const f32,
+        C: *mut f32,
+        ldc: ::libc::c_int,
+        bsc: ::libc::c_longlong,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasDgemmStridedBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const f64,
+        A: *const f64,
+        lda: ::libc::c_int,
+        bsa: ::libc::c_longlong,
+        B: *const f64,
+        ldb: ::libc::c_int,
+        bsb: ::libc::c_longlong,
+        beta: *const f64,
+        C: *mut f64,
+        ldc: ::libc::c_int,
+        bsc: ::libc::c_longlong,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasCgemmStridedBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasComplex,
+        A: *const hipblasComplex,
+        lda: ::libc::c_int,
+        bsa: ::libc::c_longlong,
+        B: *const hipblasComplex,
+        ldb: ::libc::c_int,
+        bsb: ::libc::c_longlong,
+        beta: *const hipblasComplex,
+        C: *mut hipblasComplex,
+        ldc: ::libc::c_int,
+        bsc: ::libc::c_longlong,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasZgemmStridedBatched(
+        handle: hipblasHandle_t,
+        transa: hipblasOperation_t,
+        transb: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const hipblasDoubleComplex,
+        A: *const hipblasDoubleComplex,
+        lda: ::libc::c_int,
+        bsa: ::libc::c_longlong,
+        B: *const hipblasDoubleComplex,
+        ldb: ::libc::c_int,
+        bsb: ::libc::c_longlong,
+        beta: *const hipblasDoubleComplex,
+        C: *mut hipblasDoubleComplex,
+        ldc: ::libc::c_int,
+        bsc: ::libc::c_longlong,
+        batchCount: ::libc::c_int,
+    ) -> hipblasStatus_t;
+}
+extern "C" {
+    pub fn hipblasGemmEx(
+        handle: hipblasHandle_t,
+        trans_a: hipblasOperation_t,
+        trans_b: hipblasOperation_t,
+        m: ::libc::c_int,
+        n: ::libc::c_int,
+        k: ::libc::c_int,
+        alpha: *const ::libc::c_void,
+        a: *const ::libc::c_void,
+        a_type: hipblasDatatype_t,
+        lda: ::libc::c_int,
+        b: *const ::libc::c_void,
+        b_type: hipblasDatatype_t,
+        ldb: ::libc::c_int,
+        beta: *const ::libc::c_void,
+        c: *mut ::libc::c_void,
+        c_type: hipblasDatatype_t,
+        ldc: ::libc::c_int,
+        compute_type: hipblasDatatype_t,
+        algo: hipblasGemmAlgo_t,
+    ) -> hipblasStatus_t;
 }
 pub type miopenAcceleratorQueue_t = hipStream_t;
 #[doc = " @ingroup handle"]
