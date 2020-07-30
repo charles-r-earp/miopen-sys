@@ -2,9 +2,9 @@
 
 fn main() {
     // link to hipblas
-    let hipblas_lib = "opt/rocm/hipblas/lib";
+    /*let hipblas_lib = "opt/rocm/hipblas/lib";
     println!("cargo:rustc-link-search=native={}", hipblas_lib);
-    println!("cargo:rustc-link-lib=dylib=hipblas");
+    println!("cargo:rustc-link-lib=dylib=hipblas");*/
     // link to miopen
     let miopen_lib = "/opt/rocm/miopen/lib";
     println!("cargo:rustc-link-search=native={}", miopen_lib);
@@ -21,7 +21,7 @@ fn main() {
             // The input header we would like to generate
             // bindings for.
             .header("wrapper.h")
-            .clang_arg("-I/opt/rocm/hipblas/include")
+            //.clang_arg("-I/opt/rocm/hipblas/include")
             .clang_arg("-I/opt/rocm/miopen/include")
             .clang_arg("-I/opt/rocm/hip/include")
             .rustified_non_exhaustive_enum("hip.*")
